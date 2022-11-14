@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: my-step
-        run: echo "Hello World!" | ip a
+        run: echo "Hello World!" | ip a | pind 8.8.8.8
