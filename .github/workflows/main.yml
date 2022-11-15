@@ -7,7 +7,7 @@ jobs:
       - name: my-step
         run: ls
 
-      - name: ssh
+      - name: ssh1
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: ls -a
