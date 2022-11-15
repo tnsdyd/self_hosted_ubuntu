@@ -18,7 +18,7 @@ jobs:
     # user of the server
           USER: root
     # private ssh key registered on the server
-          PRIVATE_SSH_KEY: ${{ KEY }}
+          PRIVATE_SSH_KEY: ${{ secrets.KEY }}
     # command to be executed
           COMMAND: echo Hello World!
       - name: c2
