@@ -13,4 +13,6 @@ jobs:
       
       - name: check2
         uses: actions/upload-artifact@v2
-      
+        with:
+          name: c2
+          path: hellow.txt
