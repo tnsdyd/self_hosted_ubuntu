@@ -15,5 +15,6 @@ jobs:
           SSH_HOST: ${{ env.REMOTE_HOST }}
           SSH_USER: ${{ env.REMOTE_USER }}
           SSH_KEY: ${{ secrets.KEY }}
+        run: ls 
       - name: c2
         run: ip a
