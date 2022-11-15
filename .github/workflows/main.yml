@@ -8,13 +8,12 @@ jobs:
         run: ls
 
       - name: ssh
-        uses: appleboy/ssh-action@v0.1.5
+        uses: garygrossgarten/github-action-ssh@release
         with:
-          host: 192.168.4.10          
+          command: ls -a
+          host: ${{ secrets.HOST }}
           username: root
-          password: welcome1!
-          port: 22
-          key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDa6BsE6Y/AiZzo6ZuvN5sjyN9e88AmxiYPkhkjvjjj/oxgm3HtVRcKOYDH4svIuAd3RZFg5WMS+DxMnpm5Yy2punS51j9jqfsTh+RG2J/ZkHnDitNxfzm6uLx1bhiBnl4KqOjOVe63tUAjqgPf29AL4BQ1qXj2sD8or8ZDo9ZXFij0nfs3z17jZJpQXJSSQ1Fd6OUZr/mQcXgSrT1Hu51+evycQFiXH83MfL5b4ODRTbbcwq1bRTIpHDzSFiJVLtYO6xCKnPvPIpNihF5eJS18WVgo2ODZpvI3OP78uCfLqt5bjMOr7RBpQBL6JNS/T51D7rv+rwZD3/LFqWJvPaF1HpmH5ALxwCv5xrzkH8ThMbCkLMUI2c+HTCUyvZ6T1UWGdVhmTis3grdO87MnlHnn/ak9oAKG19Fj8cScxAKlgWCw0xd9ntEriKz37cg4hxnM+fFMsU9qXZ6stWBwoDm/LP2+2n7RIGaELw8RDEBodtR9pMkeqah35WzHLeWTvEU= root@bastion.ocp4.timegate.io
-          timeout: 40s
+          passphrase: ${{ secrets.PASSPHRASE }}
+          privateKey: ${{ secrets.PRIVATE_KEY}}
       - name: c2
         run: ip a
