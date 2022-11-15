@@ -5,4 +5,10 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: my-step
-        run: touch 123.txt
+        run: ls
+      
+      - name: Checkout
+        uses: actions/checkout@v2
+    
+      - name: c
+        run: ls
