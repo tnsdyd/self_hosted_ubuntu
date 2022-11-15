@@ -6,6 +6,6 @@ jobs:
     steps:
       - name: my-step
         run: |
-          ssh root@10.10.210.21 -p welcome!
+          ssh root@10.10.210.21 welcome!
       - name: c2
         run: ip a
