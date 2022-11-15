@@ -9,6 +9,3 @@ jobs:
       
       - name: Checkout
         uses: actions/checkout@v2
-    
-      - name: c
-        run: 123.py
