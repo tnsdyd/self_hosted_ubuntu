@@ -1,20 +1,10 @@
 name: hello-world
 on: push
-env: 
-  REMOTE_HOST: 192.168.4.10
-  REMOTE_USER: root
 jobs:
   my-job:
     runs-on: self-hosted
     steps:
       - name: my-step
         run: ls
-
-      - name: ssh1
-        env:
-          SSH_HOST: ${{ env.REMOTE_HOST }}
-          SSH_USER: ${{ env.REMOTE_USER }}
-          SSH_KEY: ${{ secrets.KEY }}
-        run: ls 
       - name: c2
         run: ip a
