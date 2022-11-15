@@ -5,6 +5,13 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: my-step
-        run: ls
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd /tmp
+            ls -a
+          host: ${{ secrets.HOST }}
+          user: root
+          key: ${{ secrets.KEY}}
       - name: c2
         run: ip a
