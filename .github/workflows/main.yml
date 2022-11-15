@@ -1,5 +1,8 @@
 name: hello-world
 on: push
+env: 
+  REMOTE_HOST: 192.168.4.10
+  REMOTE_USER: root
 jobs:
   my-job:
     runs-on: self-hosted
@@ -8,12 +11,9 @@ jobs:
         run: ls
 
       - name: ssh1
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-          command: ls -a
-          host: ${{ secrets.HOST }}
-          username: root
-          passphrase: ${{ secrets.PASSPHRASE }}
-          privateKey: ${{ secrets.PRIVATE_KEY}}
+        env:
+          SSH_HOST: ${{ env.REMOTE_HOST }}
+          SSH_USER: ${{ env.REMOTE_USER }}
+          SSH_KEY: ${{ secrets.KEY }}
       - name: c2
         run: ip a
