@@ -9,3 +9,11 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          host: ${{ secrets.HOST }}          
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          timeout: 40s
+      - name: c2
+        run: ip a
