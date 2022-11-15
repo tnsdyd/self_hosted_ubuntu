@@ -7,7 +7,8 @@ jobs:
       - name: my-step
         run: ls
 
-      - name: Checkout
+      - name: ssh
+        uses: appleboy/ssh-action@v0.1.5
         with:
           host: 192.168.4.10          
           username: root
