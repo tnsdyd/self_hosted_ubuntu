@@ -37,7 +37,8 @@ jobs:
     needs: scp
     steps:
       - uses: actions/checkout@v3
-      - name: deploy
-        run: |
-          sh deploy.sh
+      - name: deploy-ssh
+        run: sh shell.sh
+      - name: deploy.sh
+        run: sh deploy.sh
     
