@@ -21,6 +21,6 @@ jobs:
         with:
           name: test123
           path: /root/gittest
-      - name: Update image on server
+      - name: ssh-scp
         run: |
           sh test.sh
