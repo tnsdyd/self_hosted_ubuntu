@@ -1,11 +1,16 @@
-name: test
+name: test123
 on: push
 jobs:
   my-job:
     runs-on: self-hosted
     steps:
-      - name: test1
+      - name: Setup key
+        id: setup-key
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: |
-          pwd
-          whoami
-          ls -al ~/.ssh/
+          echo "$PRIVATE_KEY" >> $HOME/key.pem
+          chmod 400 $HOME/key.pem          
+      - name: Update image on server
+        run: |
+          sh test.sh
