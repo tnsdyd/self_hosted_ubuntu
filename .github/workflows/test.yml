@@ -16,7 +16,7 @@ jobs:
       - name: build
         run: |
           sh build.sh
-  job1:
+  scp:
     runs-on: self-hosted
     needs: build
     steps:
@@ -32,3 +32,12 @@ jobs:
       - name: ssh-scp
         run: |
           sh test.sh
+  deploy:
+    runs-on: self-hosted
+    needs: scp
+    steps:
+      - uses: actions/checkout@v3
+      - name: deploy
+        run: |
+          sh deploy.sh
+    
