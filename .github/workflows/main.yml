@@ -8,12 +8,12 @@ jobs:
         id: setup-key
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          TEST: ${{ secrets.TEST }}
         run: |
           echo "$PRIVATE_KEY" >> $HOME/key.pem
           chmod 400 $HOME/key.pem          
       - name: Update image on server
         run: |
-          echo TEST='ssh -i $HOME/key.pem root@10.10.210.21'  
           $TEST ls /root
           $TEST ip a
           $TEST whoami
