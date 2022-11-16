@@ -15,9 +15,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: build
         run: |
-          build.sh
+          sh build.sh
   job1:
     runs-on: self-hosted
+    needs: build
     steps:
       - uses: actions/checkout@v3
       - uses: actions/upload-artifact@v3
