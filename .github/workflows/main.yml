@@ -11,8 +11,9 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" >> $HOME/key.pem
           chmod 400 $HOME/key.pem
+          TEST=ssh -i $HOME/key.pem root@10.10.210.21  
       - name: Update image on server
         run: |
-          ssh -i $HOME/key.pem root@10.10.210.21 'ls /root/'
-          ip a
-          whoami
+          $TEST 'ls /root/'
+          $TEST ip a
+          $TEST whoami
