@@ -4,13 +4,16 @@ jobs:
   my-job:
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@v3
       - name: Setup key
         id: setup-key
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: |
           echo "$PRIVATE_KEY" >> $HOME/key.pem
-          chmod 400 $HOME/key.pem          
+          chmod 400 $HOME/key.pem
+          TEST='ssh -i /root/id_rsa.pem root@10.10.210.21'
       - name: Update image on server
         run: |
-          sh test.sh
+          $TEST ls -al 
+          $TEST ip a
