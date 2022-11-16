@@ -1,0 +1,11 @@
+name: test
+on: push
+jobs:
+  my-job:
+    runs-on: self-hosted
+    steps:
+      - name: test1
+        run: |
+          pwd
+          whoami
+          ls -al ~/.ssh/
