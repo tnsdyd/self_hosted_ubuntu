@@ -10,10 +10,10 @@ jobs:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: |
           echo "$PRIVATE_KEY" >> $HOME/key.pem
-          chmod 400 $HOME/key.pem
-          echo TEST='ssh -i $HOME/key.pem root@10.10.210.21'  
+          chmod 400 $HOME/key.pem          
       - name: Update image on server
         run: |
+          echo TEST='ssh -i $HOME/key.pem root@10.10.210.21'  
           $TEST ls /root
           $TEST ip a
           $TEST whoami
