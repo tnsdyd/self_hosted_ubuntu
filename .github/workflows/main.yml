@@ -8,10 +8,10 @@ jobs:
         id: setup-key
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          TEST: ${{ secrets.TEST }}
         run: |
           echo "$PRIVATE_KEY" >> $HOME/key.pem
           chmod 400 $HOME/key.pem          
       - name: Update image on server
         run: |
-          echo $TEST
+          sh test.sh
+          
