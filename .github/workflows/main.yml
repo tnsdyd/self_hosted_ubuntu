@@ -14,6 +14,4 @@ jobs:
           chmod 400 $HOME/key.pem          
       - name: Update image on server
         run: |
-          $TEST ls /root
-          $TEST ip a
-          $TEST whoami
+          echo $TEST
