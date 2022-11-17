@@ -29,6 +29,11 @@ jobs:
         distribution: adopt 
     - name: Build with Maven
       run: |
-        mvn archetype:generate -DinteractiveMode=false  -DgroupId=test -DartifactId=test2 -DarchetypeArtifactId=maven-archetype-webapp
+        mvn archetype:generate -DinteractiveMode=false  -DgroupId=test -DartifactId=test3 -DarchetypeArtifactId=maven-archetype-webapp
         cd test2
         mvn install
+    - uses: actions/upload-artifact@v3
+      with:
+        name: test3
+        path: /home/runner/work/trre/trre/test2/target/test3.war
+        
