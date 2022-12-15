@@ -1,0 +1,20 @@
+name: self-container test
+on: 
+  workflow_dispatch: 
+    inputs: 
+      logLevel:
+        description: "Log level"
+        required: true
+        default: "waring"
+        
+  
+jobs: 
+  test:
+    runs-on: self-hosted
+    container: test:1.0
+    steps:
+      - uses: actions/checkout@v3
+      - name: test
+        run: |
+          java -version
+          ls
