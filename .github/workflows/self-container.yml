@@ -11,7 +11,9 @@ on:
 jobs: 
   test:
     runs-on: self-hosted
-    container: test:1.0
+    container: 
+      image: test:1.0
+      options: --user root
     steps:
       - uses: actions/checkout@v3
       - name: test
