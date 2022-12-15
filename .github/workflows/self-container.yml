@@ -12,11 +12,10 @@ jobs:
   test:
     runs-on: self-hosted
     container: 
-      image: test:1.0
+      image: alpine:latest
       options: --user root
     steps:
       - uses: actions/checkout@v3
       - name: test
         run: |
-          java -version
           ls
