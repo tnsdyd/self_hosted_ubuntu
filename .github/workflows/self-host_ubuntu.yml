@@ -1,4 +1,4 @@
-name: self-container test
+name: self-host test
 on: 
   workflow_dispatch: 
     inputs: 
