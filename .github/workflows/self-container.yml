@@ -11,9 +11,9 @@ on:
 jobs: 
   test:
     runs-on: self-hosted
-    #container: 
-    #  image: alpine:latest
-    #  options: --user root
+    container: 
+      image: 10.10.210.11:5000/test:1.0
+      options: --user root
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
@@ -23,4 +23,4 @@ jobs:
           distribution: 'temurin'
       - name: test
         run: |
-          java -version
+          ls
